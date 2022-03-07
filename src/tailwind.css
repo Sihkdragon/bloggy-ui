@@ -4,7 +4,7 @@
 
 @layer components {
   .icon-nav {
-    @apply text-white md:invisible cursor-pointer;
+    @apply text-white;
   }
   .menu-btn-toggle {
     @apply block text-xl hover:bg-slate-500 hover:text-white;
