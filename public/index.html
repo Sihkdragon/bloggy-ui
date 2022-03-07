@@ -1,218 +1,408 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwindcss  -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- myCSS  -->
+    <link rel="stylesheet" href="css/mystyle.css" />
+    <!-- Material Icons  -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- My Font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap"
+      rel="stylesheet"
+    />
+    <title>Home | Bloggy</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Tailwindcss  -->
-  <link rel="stylesheet" href="css/style.css" />
-  <!-- myCSS  -->
-  <link rel="stylesheet" href="css/mystyle.css" />
-  <!-- Material Icons  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <!-- My Font  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet" />
-  <title>Home | Bloggy</title>
-</head>
-
-<body class="bg-slate-100">
-  <button id="top-btn"
-    class="hidden px-2 bg-orange-500 w-8 h-8 rounded-full fixed bottom-6 right-6 z-50 hover:bg-orange-400"
-    onclick="toTop()"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-      <path fill-rule="evenodd"
-        d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"
-        clip-rule="evenodd" />
-    </svg></button>
-
-  <section id="banner" class="min-h-screen bg-[url('../img/bg.jpg')] bg-cover bg-no-repeat bg-fixed bg-center bg-gray-700">
-    <nav class="bg-myblue-1 bg-opacity-10 flex justify-between h-14 items-center" id="navbar-default">
-      <div id="button-menu"
-        class="h-full w-16 hover:bg-gray-900 hover:bg-opacity-10 justify-center items-center cursor-pointer flex md:hidden"
-        onclick="menuHandler()">
-        <div class="icon-nav material-icons md-32  md:invisible" id="toggle-menu-btn">
-          menu
-        </div>
-      </div>
-      <a href="#" class="text-white text-xl md:hidden">BRAND</a>
-      <div id="button-login"
-        class="h-full w-16 hover:bg-gray-900 hover:bg-opacity-10 justify-center items-center flex relative cursor-pointer md:hidden"
-        onclick="LoginPopUpHandler()">
-        <div class="material-icons md-28 icon-nav">account_circle</div>
-      </div>
-      <div id="popup" class="absolute top-16 right-5 hidden">
+  <body class="bg-slate-100 relative">
+    <div
+      id="loginModalContainer"
+      class="w-screen h-screen absolute bg-black bg-opacity-50 hidden z-50"
+    >
+      <div
+        id="loginModal"
+        class="w-96 h-72 mx-auto mt-14 bg-slate-300 rounded-lg shadow-2xl shadow-black"
+      >
         <div
-          class="w-32 h-12 bg-slate-200 border text-slate-800 flex justify-center items-center rounded z-50 after:arrow transition-all ease-in-out duration-500 cursor-pointer hover:bg-slate-300 hover:text-slate-600 hover:after:arrow-hover">
-          Log in
-        </div>
-      </div>
-      <div class="md:container mx-auto px-8  justify-between w-full hidden md:flex">
-        <a href="#" class="text-white text-xl ">BRAND</a>
-        <div id="nav-right-group" class="flex text-white">
-          <a href="#" class="md:inline-block hidden hover:text-slate-300 mr-2">Home</a>
-          <a href="#about-section" class="md:inline-block hidden hover:text-slate-300 mr-2">About</a>
-          <a href="#portfolio-section" class="md:inline-block hidden hover:text-slate-300 mr-2">Portfolio</a>
-          <a href="#contact-section" class="md:inline-block hidden hover:text-slate-300">Contact</a>
-
-          <div id="button-login"
-            class="h-full w-16 hover:bg-gray-900 hover:bg-opacity-10 justify-center items-center flex relative cursor-pointer"
-            onclick="LoginPopUpHandler()">
-            <div class="material-icons md-28 icon-nav">account_circle</div>
-          </div>
-          <div id="popup" class="absolute top-16 right-5 hidden">
+          id="modalHead"
+          class="w-full h-14 bg-slate-500 rounded-t-lg flex justify-between items-center"
+        >
+          <h1 class="text-2xl text-slate-200 ml-4">Log In</h1>
+          <div
+            id="modalClose"
+            onclick="modalClose()"
+            class="flex justify-center items-center h-14 w-14 rounded-tr-lg hover:bg-black/20"
+          >
             <div
-              class="w-32 h-12 bg-slate-200 border text-slate-800 flex justify-center items-center rounded z-50 after:arrow transition-all ease-in-out duration-500 cursor-pointer hover:bg-slate-300 hover:text-slate-600 hover:after:arrow-hover">
-              Log in
+              class="material-icons md-32 text-slate-200 cursor-pointer"
+              id=""
+            >
+              close
             </div>
           </div>
         </div>
+        <form action="#" method="post">
+          <div
+            id="modalBody"
+            class="py-10 px-4 grid grid-cols-2 gap-y-6 gap-x-1 place-content-center text-gray-500"
+          >
+            <label for="username">Username / Email</label>
+            <input
+              type="text"
+              class="rounded-md h-8 border border-orange-400 px-3 py-1 focus:outline-none"
+              size="20"
+              name="username"
+              id="username"
+            />
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="rounded-md h-8 border border-orange-400 px-3 py-1 focus:outline-none shadow-inner"
+              size="20"
+              name="password"
+              id="password"
+            />
+            <div class="grid grid-cols-2 gap-x-2 col-start-2">
+              <input
+                type="reset"
+                value="Reset"
+                class="bg-orange-400 rounded-md text-slate-100 px-2 py-1 hover:text-slate-700 hover:bg-orange-300"
+              />
+              <input
+                type="submit"
+                value="Submit"
+                class="bg-orange-400 rounded-md text-slate-100 px-2 py-1 hover:text-slate-700 hover:bg-orange-300"
+              />
+            </div>
+          </div>
+        </form>
       </div>
-    </nav>
-    <!-- Toogle Menu -->
-    <div id="toggle-menu"
-      class="bg-gray-400/75 w-full grid-rows-4 text-center -translate-y-96 transition duration-500 ease-out absolute">
-      <a href="#cover" class="menu-btn-toggle">
-        <div class="py-4">Home</div>
-      </a>
-      <a href="#about-section" class="menu-btn-toggle">
-        <div class="py-4">About</div>
-      </a>
-      <a href="#portfolio-section" class="menu-btn-toggle">
-        <div class="py-4">Portfolio</div>
-      </a>
-      <a href="#contact-section" class="menu-btn-toggle">
-        <div class="py-4">Contact</div>
-      </a>
     </div>
-    <!-- Toogle Menu -->
-    <div id="cover" class="container flex items-center px-5 w-full h-screen  mx-auto">
-      <h1 class="font-bold text-4xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-br from-orange-600/80 to-slate-200/30">
-        When things go wrong,<br />
-        don't go with them.
-      </h1>
+    <div
+      id="top-btn"
+      class="hidden bg-orange-500 w-8 h-8 rounded-full fixed bottom-6 right-6 z-50 hover:bg-orange-400 pt-1"
+      onclick="toTop()"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5 mx-auto"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"
+          clip-rule="evenodd"
+        />
+      </svg>
     </div>
-  </section>
-  <main class="container mx-auto">
-    <section id="about-section" class="section min-h-screen">
-      <h2 class="section-title">ABOUT</h2>
-      <div class="row w-full grid grid-cols-1 lg:grid-cols-2 lg:my-10">
-      <img src="img/object.png" alt="object" class="w-2/5 lg:h-fit m-auto block lg:m-0
-          lg:mx-20 lg:float-left" />
-      <p class="text-justify indent-3 mt-7 block">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut aspernatur dolores corporis perspiciatis praesentium soluta iusto, assumenda reprehenderit, quibusdam, laboriosam quo vitae sequi sed repellendus nostrum cum natus aliquam architecto placeat voluptas pariatur quis corrupti! Rerum tempore veritatis hic maiores, quos, tempora ut minima eos reprehenderit corporis tenetur. Earum molestiae illo aut, incidunt unde fugit neque totam aliquid maiores, praesentium fuga. Vitae eligendi possimus obcaecati, sapiente autem natus nesciunt accusantium repudiandae, ex aspernatur ipsum facilis quas? Nesciunt alias quis ea qui magnam? Veritatis odio excepturi ullam commodi harum, repellat doloribus velit. Libero beatae incidunt ex rerum error unde eum nihil itaque! Neque beatae porro, labore nemo optio harum ipsum maiores quibusdam minus omnis ab ut placeat eligendi perferendis ipsam repudiandae laboriosam rem delectus. Ipsam similique quas perferendis illum ad sapiente quod quos omnis minima. Molestiae nulla eos excepturi corporis rerum iusto quos voluptatum aperiam corrupti quidem voluptates nemo facilis inventore velit, dolor aspernatur animi numquam, minima magnam impedit culpa natus possimus? Ipsum, ipsa vitae dolorum, numquam soluta itaque, alias distinctio commodi accusamus assumenda quisquam temporibus?
-      </p>
+
+    <section
+      id="banner"
+      class="flex flex-col min-h-screen bg-[url('../img/bg.jpg')] bg-cover bg-no-repeat bg-fixed bg-center bg-gray-700"
+    >
+      <nav
+        class="bg-myblue-1 bg-opacity-10 flex justify-between h-14 items-center"
+        id="navbar-default"
+      >
+        <div
+          id="button-menu"
+          class="h-full w-16 hover:bg-gray-900 hover:bg-opacity-10 justify-center items-center cursor-pointer flex md:hidden"
+          onclick="menuHandler()"
+        >
+          <div
+            class="icon-nav material-icons md-32 md:invisible"
+            id="toggle-menu-btn"
+          >
+            menu
+          </div>
+        </div>
+        <a href="/" class="text-white text-xl md:hidden">BRAND</a>
+        <div
+          id="button-login"
+          class="h-full w-16 hover:bg-gray-900 hover:bg-opacity-10 justify-center items-center flex relative cursor-pointer md:hidden"
+          onclick="LoginPopUpHandler()"
+        >
+          <div class="material-icons md-28 icon-nav">account_circle</div>
+        </div>
+        <div
+          id="popup"
+          class="absolute top-14 right-2 lg:right-10 hidden"
+          onclick="showLoginModal()"
+        >
+          <div
+            class="w-32 h-12 bg-slate-200 border text-slate-800 flex justify-center items-center rounded z-50 transition-all ease-in-out duration-500 cursor-pointer hover:bg-slate-300 hover:text-slate-600"
+          >
+            Log in
+          </div>
+        </div>
+        <div
+          class="md:container mx-auto px-8 justify-between w-full hidden md:flex"
+        >
+          <a href="#" class="text-white text-xl">BRAND</a>
+          <div id="nav-right-group" class="flex text-white">
+            <a href="#" class="md:inline-block hidden hover:text-slate-300 mr-4"
+              >Home</a
+            >
+            <a
+              href="#about-section"
+              class="md:inline-block hidden hover:text-slate-300 mr-4"
+              >About</a
+            >
+            <a
+              href="#portfolio-section"
+              class="md:inline-block hidden hover:text-slate-300 mr-4"
+              >Portfolio</a
+            >
+            <a
+              href="#contact-section"
+              class="md:inline-block hidden hover:text-slate-300"
+              >Contact</a
+            >
+            <div
+              id="button-login"
+              class="h-full w-16 hover:bg-gray-900 hover:bg-opacity-10 justify-center items-center flex relative cursor-pointer"
+              onclick="LoginPopUpHandler()"
+            >
+              <div class="material-icons md-28 icon-nav">account_circle</div>
+            </div>
+            <div id="popup" class="absolute top-16 right-5 hidden">
+              <div
+                class="w-32 h-12 bg-slate-200 border text-slate-800 flex justify-center items-center rounded z-50 transition-all ease-in-out duration-500 cursor-pointer hover:bg-slate-300 hover:text-slate-600"
+              >
+                Log in
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- Toogle Menu -->
+      <div
+        id="toggle-menu"
+        class="bg-gray-400/75 w-full grid-rows-4 text-center -translate-y-96 transition duration-500 ease-out absolute mt-14"
+      >
+        <a href="#cover" class="menu-btn-toggle">
+          <div class="py-4">Home</div>
+        </a>
+        <a href="#about-section" class="menu-btn-toggle">
+          <div class="py-4">About</div>
+        </a>
+        <a href="#portfolio-section" class="menu-btn-toggle">
+          <div class="py-4">Portfolio</div>
+        </a>
+        <a href="#contact-section" class="menu-btn-toggle">
+          <div class="py-4">Contact</div>
+        </a>
       </div>
-      <blockquote class="text-gray-900 text-lg font-extralight text-center my-10 lg:my-5 lg:text-2xl">
-        "Lex specialis derogat legi generalis"
-      </blockquote>
+      <!-- Toogle Menu -->
+      <div id="cover" class="container px-5 w-full h-fit m-auto">
+        <h1
+          class="font-bold my-auto text-4xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-br from-orange-600/80 to-slate-200/30 container block"
+        >
+          When things go wrong,<br />
+          don't go with them.
+        </h1>
+      </div>
     </section>
-    <section id="portfolio-section"
-      class="section bg-[url('../img/portfoliobg.jpg')] bg-cover bg-no-repeat bg-center bg-fixed">
-      <h2 class="section-title text-white">PORTFOLIO</h2>
-      <div class="grid grid-cols-2 my-10 gap-8 place-content-center place-items-center lg:grid-cols-4 md:gap-6">
-        <div class="project-card">
-          <img src="https://via.placeholder.com/192x95" alt="ss" srcset="" />
-          <div class="card-content px-2">
-            <h4 class="text-white text-md font-semibold">Lorem, ipsum.</h4>
-            <p class="card-body text-xs text-slate-200">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Quibusdam adipisci ex velit perferendis.
-            </p>
-            <button class="btn-open">Open</button>
+    <main class="container mx-auto">
+      <section id="about-section" class="section min-h-screen">
+        <h2 class="section-title">ABOUT</h2>
+        <div class="row w-full grid grid-cols-1 lg:grid-cols-2 lg:my-10">
+          <img
+            src="img/object.png"
+            alt="object"
+            class="w-2/5 lg:h-fit m-auto block lg:m-0 lg:mx-20 lg:float-left"
+          />
+          <p class="text-justify indent-3 mt-7 block">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
+            aspernatur dolores corporis perspiciatis praesentium soluta iusto,
+            assumenda reprehenderit, quibusdam, laboriosam quo vitae sequi sed
+            repellendus nostrum cum natus aliquam architecto placeat voluptas
+            pariatur quis corrupti! Rerum tempore veritatis hic maiores, quos,
+            tempora ut minima eos reprehenderit corporis tenetur. Earum
+            molestiae illo aut, incidunt unde fugit neque totam aliquid maiores,
+            praesentium fuga. Vitae eligendi possimus obcaecati, sapiente autem
+            natus nesciunt accusantium repudiandae, ex aspernatur ipsum facilis
+            quas? Nesciunt alias quis ea qui magnam? Veritatis odio excepturi
+            ullam commodi harum, repellat doloribus velit. Libero beatae
+            incidunt ex rerum error unde eum nihil itaque! Neque beatae porro,
+            labore nemo optio harum ipsum maiores quibusdam minus omnis ab ut
+            placeat eligendi perferendis ipsam repudiandae laboriosam rem
+            delectus. Ipsam similique quas perferendis illum ad sapiente quod
+            quos omnis minima. Molestiae nulla eos excepturi corporis rerum
+            iusto quos voluptatum aperiam corrupti quidem voluptates nemo
+            facilis inventore velit, dolor aspernatur animi numquam, minima
+            magnam impedit culpa natus possimus? Ipsum, ipsa vitae dolorum,
+            numquam soluta itaque, alias distinctio commodi accusamus assumenda
+            quisquam temporibus?
+          </p>
+        </div>
+        <blockquote
+          class="text-gray-900 text-lg font-extralight text-center my-10 lg:my-5 lg:text-2xl"
+        >
+          "Lex specialis derogat legi generalis"
+        </blockquote>
+      </section>
+      <section
+        id="portfolio-section min-h-screen"
+        class="section bg-[url('../img/portfoliobg.jpg')] bg-cover bg-no-repeat bg-center bg-fixed"
+      >
+        <h2 class="section-title text-white">PORTFOLIO</h2>
+        <div
+          class="grid grid-cols-2 my-10 gap-8 place-content-center place-items-center lg:grid-cols-4 md:gap-6"
+        >
+          <div class="project-card">
+            <img src="https://via.placeholder.com/192x95" alt="ss" srcset="" />
+            <div class="card-content px-2">
+              <h4 class="text-white text-md font-semibold">Lorem, ipsum.</h4>
+              <p class="card-body text-xs text-slate-200">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Quibusdam adipisci ex velit perferendis.
+              </p>
+              <button class="btn-open">Open</button>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="https://via.placeholder.com/192x95" alt="ss" srcset="" />
+            <div class="card-content px-2">
+              <h4 class="text-white text-md font-semibold">Lorem, ipsum.</h4>
+              <p class="card-body text-xs text-slate-200">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Quibusdam adipisci ex velit perferendis.
+              </p>
+              <button class="btn-open">Open</button>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="https://via.placeholder.com/192x95" alt="ss" srcset="" />
+            <div class="card-content px-2">
+              <h4 class="text-white text-md font-semibold">Lorem, ipsum.</h4>
+              <p class="card-body text-xs text-slate-200">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Quibusdam adipisci ex velit perferendis.
+              </p>
+              <button class="btn-open">Open</button>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="https://via.placeholder.com/192x95" alt="ss" srcset="" />
+            <div class="card-content px-2">
+              <h4 class="text-white text-md font-semibold">Lorem, ipsum.</h4>
+              <p class="card-body text-xs text-slate-200">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Quibusdam adipisci ex velit perferendis.
+              </p>
+              <button class="btn-open">Open</button>
+            </div>
           </div>
         </div>
-        <div class="project-card">
-          <img src="https://via.placeholder.com/192x95" alt="ss" srcset="" />
-          <div class="card-content px-2">
-            <h4 class="text-white text-md font-semibold">Lorem, ipsum.</h4>
-            <p class="card-body text-xs text-slate-200">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Quibusdam adipisci ex velit perferendis.
-            </p>
-            <button class="btn-open">Open</button>
+      </section>
+      <section id="contact-section" class="section min-h-screen">
+        <h2 class="section-title">CONTACT</h2>
+        <a
+          href="http://instagram.com/ditotisi"
+          target="_blank"
+          class="social-media"
+        >
+          <div class="socmed-icon w-8 mr-2">
+            <img src="https://cdn.cdnlogo.com/logos/i/32/instagram-icon.svg" />
           </div>
-        </div>
-        <div class="project-card">
-          <img src="https://via.placeholder.com/192x95" alt="ss" srcset="" />
-          <div class="card-content px-2">
-            <h4 class="text-white text-md font-semibold">Lorem, ipsum.</h4>
-            <p class="card-body text-xs text-slate-200">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Quibusdam adipisci ex velit perferendis.
-            </p>
-            <button class="btn-open">Open</button>
+          <div class="socmed-name text-xl">Instagram</div>
+        </a>
+        <a
+          href="http://github.com/sihkdragon"
+          target="_blank"
+          class="social-media mb-5"
+        >
+          <div class="socmed-icon w-8 mr-2">
+            <img src="https://cdn.cdnlogo.com/logos/g/69/github-icon.svg" />
           </div>
-        </div>
-        <div class="project-card">
-          <img src="https://via.placeholder.com/192x95" alt="ss" srcset="" />
-          <div class="card-content px-2">
-            <h4 class="text-white text-md font-semibold">Lorem, ipsum.</h4>
-            <p class="card-body text-xs text-slate-200">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Quibusdam adipisci ex velit perferendis.
-            </p>
-            <button class="btn-open">Open</button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="contact-section" class="section min-h-screen ">
-      <h2 class="section-title">CONTACT</h2>
-      <div href="https://instagram.com/ditotisi" target="_blank" class="social-media">
-        <div class="socmed-icon w-8 mr-2">
-          <img src="https://cdn.cdnlogo.com/logos/i/32/instagram-icon.svg" />
-        </div>
-        <div class="socmed-name text-xl">Instagram</div>
-      </div>
-      <a href="http://github.com/sihkdragon" target="_blank" class="social-media mb-5">
-        <div class="socmed-icon w-8 mr-2">
-          <img src="https://cdn.cdnlogo.com/logos/g/69/github-icon.svg" />
-        </div>
-        <div class="socmed-name text-xl">Github</div>
-      </a>
-      <!-- <form action="#"> -->
+          <div class="socmed-name text-xl">Github</div>
+        </a>
+        <!-- <form action="#"> -->
         <label for="email" class="text-slate-600">E-mail</label>
-        <input type="email" name="email" id="email"
+        <input
+          type="email"
+          name="email"
+          id="email"
           class="py-2 px-4 my-2 w-1/2 block border-2 border-orange-300 rounded-md outline-none focus:border-orange-500 text-slate-600"
-          placeholder="example@gmail.com" />
+          placeholder="example@gmail.com"
+        />
         <label for="message" class="text-slate-600">Message Me</label>
-        <textarea name="message" id="message"
+        <textarea
+          name="message"
+          id="message"
           class="block mt-3 h-64 w-full p-2 border-2 border-orange-300 rounded-md outline-none focus:border-orange-500 text-slate-600"
-          placeholder="Your Message Here..."></textarea>
-        </div>
+          placeholder="Your Message Here..."
+        ></textarea>
         <div class="button-group flex justify-end">
-          <input type="reset" value="Reset"
-            class="px-5 py-2 bg-orange-600 text-white rounded-lg block mt-5 cursor-pointer hover:bg-orange-500 hover:text-slate-400" />
-          <input type="submit" value="Submit"
-            class="px-5 py-2 bg-orange-600 text-white rounded-lg block mt-5 cursor-pointer hover:bg-orange-500 hover:text-slate-400 ml-2" />
+          <input
+            type="reset"
+            value="Reset"
+            class="px-5 py-2 bg-orange-600 text-white rounded-lg block mt-5 cursor-pointer hover:bg-orange-500 hover:text-slate-400"
+          />
+          <input
+            type="submit"
+            value="Submit"
+            class="px-5 py-2 bg-orange-600 text-white rounded-lg block mt-5 cursor-pointer hover:bg-orange-500 hover:text-slate-400 ml-2"
+          />
         </div>
-      <!-- </form> -->
-    </section>
-    <section class="section bg-gray-700">
-      <div class="container mx-auto px-5 grid grid-cols-2">
+        <!-- </form> -->
+      </section>
+    </main>
+    <section class="bg-gray-700 py-3">
+      <div class="container mx-auto py-2 grid grid-cols-2 lg:w-1/3 lg:gap-0">
         <div id="footer-contact" class="text-slate-300">
           <ul>
             <li class="text-lg font-semibold">Contact</li>
-            <li><a href="http://instagram.com/ditotisi" target="_blank" rel="noopener noreferrer"
-                class="hover:text-slate-500">Instagram</a></li>
-            <li><a href="http://github.com/sihkdragon" target="_blank" rel="noopener noreferrer"
-                class="hover:text-slate-500">Github</a></li>
+            <li>
+              <a
+                href="http://instagram.com/ditotisi"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-slate-500"
+                >Instagram</a
+              >
+            </li>
+            <li>
+              <a
+                href="http://github.com/sihkdragon"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-slate-500"
+                >Github</a
+              >
+            </li>
           </ul>
         </div>
         <div id="footer-project" class="text-slate-300">
           <ul>
             <li class="text-lg font-semibold">Project</li>
-            <li class="hover:text-slate-500"><a href="#portfolio-section">Mobile</a></li>
-            <li class="hover:text-slate-500"><a href="#portfolio-section">Website</a></li>
-            <li class="hover:text-slate-500"><a href="#portfolio-section">Artificial Intellegence</a></li>
+            <li class="hover:text-slate-500">
+              <a href="#portfolio-section">Mobile</a>
+            </li>
+            <li class="hover:text-slate-500">
+              <a href="#portfolio-section">Website</a>
+            </li>
+            <li class="hover:text-slate-500">
+              <a href="#portfolio-section">Artificial Intellegence</a>
+            </li>
           </ul>
         </div>
       </div>
+      <div id="copyright" class="text-xs text-slate-500 text-center">
+        &copy; Copyright Holyholywood 2022
+      </div>
     </section>
-  </main>
-  <script src="js/index.js"></script>
-</body>
-
+    <script src="js/index.js"></script>
+  </body>
 </html>

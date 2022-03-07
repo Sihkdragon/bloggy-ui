@@ -26,3 +26,17 @@ const toTop= () => {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+
+const showLoginModal=()=>{
+  const modal = document.querySelector("#loginModalContainer")
+  const buttonopen = document.querySelector("#popup")
+  modal.classList.remove("hidden")
+  buttonopen.classList.add("hidden")
+}
+const modalClose = () => {
+  const buttonclose = document.querySelector("#modalClose")
+  const modal = document.querySelector("#loginModalContainer")
+   buttonclose.addEventListener("click", ()=>{
+     modal.classList.add('hidden')
+   })
+}

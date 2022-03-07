@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div id="kotak" class="div w-20 h-20 bg-green-400 mx-auto mt-64"></div>
+
+    <script>
+      const objek = document.querySelector("#kotak");
+      const contoh = () => {};
+      objek.addEventListener("click", () => {
+        objek.classList.contains("bg-green-400")
+          ? objek.classList.add("bg-blue-400")
+          : objek.classList.add("bg-red-800");
+      });
+    </script>
+  </body>
+</html>

@@ -4,5 +4,8 @@
   },
   "scripts": {
     "dev": "npx tailwindcss -i ./src/tailwind.css -o ./public/css/style.css --watch"
+  },
+  "dependencies": {
+    "redist": "^0.2.0"
   }
 }
