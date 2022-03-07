@@ -27,7 +27,7 @@
         clip-rule="evenodd" />
     </svg></button>
 
-  <section id="banner" class="h-80 bg-[url('../img/bg.jpg')] bg-cover bg-no-repeat bg-fixed bg-center bg-gray-700">
+  <section id="banner" class="min-h-screen bg-[url('../img/bg.jpg')] bg-cover bg-no-repeat bg-fixed bg-center bg-gray-700">
     <nav class="bg-myblue-1 bg-opacity-10 flex justify-between h-14 items-center" id="navbar-default">
       <div id="button-menu"
         class="h-full w-16 hover:bg-gray-900 hover:bg-opacity-10 justify-center items-center cursor-pointer flex md:hidden"
@@ -87,40 +87,31 @@
       </a>
     </div>
     <!-- Toogle Menu -->
-    <div id="cover" class="container flex items-center px-5 w-full h-4/5">
-      <h1 class="font-bold text-4xl bg-clip-text text-transparent bg-gradient-to-br from-orange-600/80 to-slate-800/20">
+    <div id="cover" class="container flex items-center px-5 w-full h-screen  mx-auto">
+      <h1 class="font-bold text-4xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-br from-orange-600/80 to-slate-200/30">
         When things go wrong,<br />
         don't go with them.
       </h1>
     </div>
   </section>
   <main class="container mx-auto">
-    <section id="about-section" class="section">
+    <section id="about-section" class="section min-h-screen">
       <h2 class="section-title">ABOUT</h2>
-      <!-- <div class="row grid grid-cols-1 lg:grid-cols-2"> -->
-      <img src="img/object.png" alt="object" class="w-2/5 lg:w-1/5 m-auto block lg:m-0
+      <div class="row w-full grid grid-cols-1 lg:grid-cols-2 lg:my-10">
+      <img src="img/object.png" alt="object" class="w-2/5 lg:h-fit m-auto block lg:m-0
           lg:mx-20 lg:float-left" />
       <p class="text-justify indent-3 mt-7 block">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum
-        molestias veniam nostrum mollitia provident esse. Quam quos nulla eius
-        ex molestiae nemo accusamus sunt, perspiciatis sequi at repudiandae
-        ratione explicabo totam amet exercitationem quia inventore aliquam
-        est? Placeat quibusdam deserunt voluptatum adipisci, dolorum
-        voluptatibus reprehenderit consequatur maiores sit aliquid blanditiis
-        aut earum velit ea laboriosam ab vitae sunt. Eum, laborum officiis.
-        Corporis, iure unde? Quisquam, reprehenderit! Minima sint, voluptatem
-        unde iste eius, perspiciatis praesentium quam natus repudiandae
-        voluptatibus aliquid laudantium!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut aspernatur dolores corporis perspiciatis praesentium soluta iusto, assumenda reprehenderit, quibusdam, laboriosam quo vitae sequi sed repellendus nostrum cum natus aliquam architecto placeat voluptas pariatur quis corrupti! Rerum tempore veritatis hic maiores, quos, tempora ut minima eos reprehenderit corporis tenetur. Earum molestiae illo aut, incidunt unde fugit neque totam aliquid maiores, praesentium fuga. Vitae eligendi possimus obcaecati, sapiente autem natus nesciunt accusantium repudiandae, ex aspernatur ipsum facilis quas? Nesciunt alias quis ea qui magnam? Veritatis odio excepturi ullam commodi harum, repellat doloribus velit. Libero beatae incidunt ex rerum error unde eum nihil itaque! Neque beatae porro, labore nemo optio harum ipsum maiores quibusdam minus omnis ab ut placeat eligendi perferendis ipsam repudiandae laboriosam rem delectus. Ipsam similique quas perferendis illum ad sapiente quod quos omnis minima. Molestiae nulla eos excepturi corporis rerum iusto quos voluptatum aperiam corrupti quidem voluptates nemo facilis inventore velit, dolor aspernatur animi numquam, minima magnam impedit culpa natus possimus? Ipsum, ipsa vitae dolorum, numquam soluta itaque, alias distinctio commodi accusamus assumenda quisquam temporibus?
       </p>
-      <!-- </div> -->
-      <blockquote class="text-gray-900 text-lg font-extralight text-center my-10">
+      </div>
+      <blockquote class="text-gray-900 text-lg font-extralight text-center my-10 lg:my-5 lg:text-2xl">
         "Lex specialis derogat legi generalis"
       </blockquote>
     </section>
     <section id="portfolio-section"
       class="section bg-[url('../img/portfoliobg.jpg')] bg-cover bg-no-repeat bg-center bg-fixed">
       <h2 class="section-title text-white">PORTFOLIO</h2>
-      <div class="grid grid-cols-2 my-10 gap-8 place-content-center place-items-center lg:grid-cols-4 md:gap-4">
+      <div class="grid grid-cols-2 my-10 gap-8 place-content-center place-items-center lg:grid-cols-4 md:gap-6">
         <div class="project-card">
           <img src="https://via.placeholder.com/192x95" alt="ss" srcset="" />
           <div class="card-content px-2">
@@ -167,7 +158,7 @@
         </div>
       </div>
     </section>
-    <section id="contact-section" class="section min-h-screen">
+    <section id="contact-section" class="section min-h-screen ">
       <h2 class="section-title">CONTACT</h2>
       <div href="https://instagram.com/ditotisi" target="_blank" class="social-media">
         <div class="socmed-icon w-8 mr-2">
@@ -175,13 +166,13 @@
         </div>
         <div class="socmed-name text-xl">Instagram</div>
       </div>
-      <a href="https://instagram.com/ditotisi" target="_blank" class="social-media mb-5">
+      <a href="http://github.com/sihkdragon" target="_blank" class="social-media mb-5">
         <div class="socmed-icon w-8 mr-2">
           <img src="https://cdn.cdnlogo.com/logos/g/69/github-icon.svg" />
         </div>
         <div class="socmed-name text-xl">Github</div>
       </a>
-      <form action="#">
+      <!-- <form action="#"> -->
         <label for="email" class="text-slate-600">E-mail</label>
         <input type="email" name="email" id="email"
           class="py-2 px-4 my-2 w-1/2 block border-2 border-orange-300 rounded-md outline-none focus:border-orange-500 text-slate-600"
@@ -191,13 +182,13 @@
           class="block mt-3 h-64 w-full p-2 border-2 border-orange-300 rounded-md outline-none focus:border-orange-500 text-slate-600"
           placeholder="Your Message Here..."></textarea>
         </div>
-        <div class="button-group flex float-right">
+        <div class="button-group flex justify-end">
           <input type="reset" value="Reset"
             class="px-5 py-2 bg-orange-600 text-white rounded-lg block mt-5 cursor-pointer hover:bg-orange-500 hover:text-slate-400" />
           <input type="submit" value="Submit"
             class="px-5 py-2 bg-orange-600 text-white rounded-lg block mt-5 cursor-pointer hover:bg-orange-500 hover:text-slate-400 ml-2" />
         </div>
-      </form>
+      <!-- </form> -->
     </section>
     <section class="section bg-gray-700">
       <div class="container mx-auto px-5 grid grid-cols-2">
